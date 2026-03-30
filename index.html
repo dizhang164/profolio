@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>114-2高三科技應用專題作品集</title>
+    <style>
+        :root {
+            --bg-dark: #0a0f1d;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --neon-blue: #00e5ff;
+            --cute-pink: #ff7eb9;
+            --text-main: #e2e8f0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', "Microsoft JhengHei", sans-serif;
+            background: radial-gradient(circle at top right, #162242, var(--bg-dark));
+            color: var(--text-main);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            height: 70px;
+            background: rgba(10, 15, 29, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--neon-blue);
+            display: flex; align-items: center; padding: 0 30px;
+            box-shadow: 0 0 15px rgba(0, 229, 255, 0.2);
+            z-index: 10;
+        }
+        header h1 { font-size: 1.5rem; color: #ffffff; letter-spacing: 2px; text-shadow: 0 0 8px var(--neon-blue); }
+        .main-container { display: flex; flex: 1; height: calc(100vh - 70px); }
+        nav {
+            width: 260px; background: var(--glass-bg);
+            border-right: 1px solid var(--glass-border);
+            padding: 20px; display: flex; flex-direction: column; gap: 15px;
+            backdrop-filter: blur(5px);
+        }
+        .menu-btn {
+            background: transparent; border: 1px solid transparent;
+            color: var(--text-main); padding: 15px; text-align: left;
+            font-size: 1rem; border-radius: 15px; cursor: pointer;
+            transition: all 0.3s ease; display: flex; align-items: center; gap: 10px;
+        }
+        .menu-btn:hover { background: rgba(0, 229, 255, 0.1); border: 1px solid var(--neon-blue); transform: translateX(5px); }
+        .menu-btn.active {
+            background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(255, 126, 185, 0.2));
+            border: 1px solid var(--neon-blue); color: white; font-weight: bold;
+            box-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
+        }
+        main { flex: 1; padding: 40px; overflow-y: auto; position: relative; }
+        .content-section { display: none; max-width: 800px; margin: 0 auto; }
+        .content-section.active { display: block; animation: slideIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
+        @keyframes slideIn { 0% { opacity: 0; transform: translateY(30px) scale(0.98); } 100% { opacity: 1; transform: translateY(0) scale(1); } }
+        .card {
+            background: var(--glass-bg); border: 1px solid var(--glass-border);
+            border-radius: 20px; padding: 30px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px); line-height: 1.8;
+        }
+        h2 { color: var(--neon-blue); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        h2::before { content: ''; display: inline-block; width: 8px; height: 24px; background: var(--cute-pink); border-radius: 4px; }
+        p { margin-bottom: 15px; font-size: 1.05rem; }
+        .highlight-btn { color: var(--neon-blue); font-weight: bold; cursor: pointer; text-decoration: underline; text-underline-offset: 4px; transition: 0.3s; }
+        .highlight-btn:hover { color: var(--cute-pink); text-shadow: 0 0 8px var(--cute-pink); }
+        .action-btn {
+            display: inline-block; padding: 10px 25px; margin-top: 15px;
+            background: var(--neon-blue); color: #000; text-decoration: none;
+            border-radius: 30px; font-weight: bold; transition: 0.3s;
+        }
+        .action-btn:hover { background: var(--cute-pink); color: white; box-shadow: 0 0 15px var(--cute-pink); transform: translateY(-2px); }
+        .tag { display: inline-block; padding: 3px 10px; background: rgba(255, 126, 185, 0.2); color: var(--cute-pink); border-radius: 12px; font-size: 0.9rem; margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🚀 114-2高三科技應用專題作品集-31020張永玓</h1>
+    </header>
+    <div class="main-container">
+        <nav>
+            <button class="menu-btn active" onclick="switchTab('intro', this)">✨ 登入航行日誌</button>
+            <button class="menu-btn" onclick="switchTab('game', this)">🎮 星際避障者</button>
+            <button class="menu-btn" onclick="switchTab('3d-art', this)">🦄 3D作品：美樂蒂</button>
+            <button class="menu-btn" onclick="switchTab('reflection', this)">📝 學習反思與總結</button>
+        </nav>
+        <main>
+            <section id="intro" class="content-section active">
+                <div class="card">
+                    <h2>系統連線成功，歡迎登入</h2>
+                    <p>這是一份乘載著創意與程式碼的星際航行紀錄。在這裡，你將看到我如何利用 AI 作為副駕駛，並透過 3D 技術建構出屬於我的數位宇宙。</p>
+                    <p>請點擊左側面板，啟動各項專案檔案。<span class="highlight-btn" onclick="showAlert('💡 提示：在瀏覽過程中，點擊發光的文字，可以解鎖我的專屬創作秘密喔！')">【點我測試互動系統】</span></p>
+                </div>
+            </section>
+            <section id="game" class="content-section">
+                <div class="card">
+                    <h2>星際避障者 (Web Game)</h2>
+                    <div class="tag">Google AI Studio</div>
+                    <p><strong>【創作心得】</strong><br>我覺得用 AI 做網頁小遊戲真的非常方便！以前總是要慢慢地打程式碼、辛苦地除錯；現在不一樣了，我只需要把腦海中的想法告訴 AI，它就會依照我的需求生成出對應的架構。</p>
+                    <p><strong>【開發秘辛】</strong><br>這個遊戲最困難的地方在於<span class="highlight-btn" onclick="showAlert('🤖 AI 詠唱技巧：要讓 AI 寫出精準的路線邏輯，需要不斷提供更詳細的條件限制與規則，這讓我學到了如何與 AI 進行有效溝通！')">路徑與敵方偵查邏輯的自動生成</span>。過程中並非一次到位，而是透過我與 AI 反覆修訂「提示詞 (Prompt)」，才終於達到現在理想的遊戲體驗！</p>
+                    <a href="https://dizhang164.github.io/game/ai_studio_code%20(1).html" target="_blank" class="action-btn">🚀 啟動遊戲</a>
+                </div>
+            </section>
+            <section id="3d-art" class="content-section">
+                <div class="card">
+                    <h2>3D作品：電臀美樂蒂</h2>
+                    <div class="tag">Monster Mash</div>
+                    <p><strong>【作品簡介】</strong><br>這是一隻正在盡情「電臀」的美樂蒂，充滿活力與趣味！</p>
+                    <p><strong>【創作心得】</strong><br>這個作品是使用 Monster Mash 軟體完成的。當初在選擇主題時，因為覺得美樂蒂這個玩偶超級可愛，加上想要做點有動態反差感的效果，於是就誕生了這個充滿魔性的 3D 動畫。看著平面的塗鴉瞬間變成能動的立體玩偶，過程真的超療癒。</p>
+                    <a href="https://dizhang164.github.io/3d/" target="_blank" class="action-btn">✨ 觀看 3D 展廳</a>
+                </div>
+            </section>
+            <section id="reflection" class="content-section">
+                <div class="card">
+                    <h2>學習反思與總結</h2>
+                    <p>這門科技應用專題課讓我收穫滿滿，課程主要包含四大核心探索：</p>
+                    <ol style="margin-left: 20px; margin-bottom: 20px; line-height: 2;">
+                        <li>使用 <strong>Monster Mash</strong> 及 <strong>Polycam</strong> 製作 3D 物件。</li>
+                        <li>使用 <strong>Google AI Studio</strong> 生成互動式網頁遊戲。</li>
+                        <li>使用 <strong>GitHub</strong> 進行網頁的雲端部署與上傳。</li>
+                        <li>使用 <strong>Gemini</strong> 協作生成這個充滿科技感的學習成果首頁。</li>
+                    </ol>
+                    <p><strong>【心得總結】</strong><br>在所有環節中，製作 3D 物件的過程讓我感到非常有趣；而 Google AI Studio 能夠直接生成網頁遊戲的強大能力，更是令我印象深刻。<br><br>不過，這趟旅程也有充滿挑戰的時刻。我覺得最困難的就是<span class="highlight-btn" onclick="showAlert('💥 雖然 GitHub 的指令跟步驟很瑣碎，但成功上傳並看到網址生效的那一刻，所有的辛苦都值得了！')">將網頁上傳到 GitHub 的過程</span>。步驟非常瑣碎，途中碰到了非常多的難關與錯誤訊息。還好我沒有放棄，將問題一一解決，最後順利看見自己的心血上線，這份滿滿的成就感是我這堂課最大的收穫！</p>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        function switchTab(tabId, btnElement) {
+            document.querySelectorAll('.content-section').forEach(section => section.classList.remove('active'));
+            document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(tabId).classList.add('active');
+            btnElement.classList.add('active');
+        }
+        function showAlert(message) { alert(message); }
+    </script>
+</body>
+</html>
